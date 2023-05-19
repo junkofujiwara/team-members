@@ -4,7 +4,7 @@
 import logging
 import settings
 from util.utility import init, write_file, read_file
-from util.github_query import list_teams, list_team_members, create_teams, create_members
+from util.github_query import list_teams, list_team_members, create_teams, create_team_members
 
 def main():
     """main"""
@@ -28,19 +28,20 @@ def main():
                               github_org,
                               github_token,
                               teams),
-            settings.OUTPUT_FILE_MEMBERS)
-        logging.info("Filed %s team members (%s)", team_member_count, settings.OUTPUT_FILE_MEMBERS)
+            settings.OUTPUT_FILE_TEAM_MEMBERS)
+        logging.info("Filed %s team members (%s)",
+                     team_member_count,
+                     settings.OUTPUT_FILE_TEAM_MEMBERS)
     elif operation.casefold() == settings.OPERATION_UPDATE:
-        logging.info("Update team and members")
+        logging.info("Update teams and members")
         team_data = read_file(settings.OUTPUT_FILE_TEAMS)
         team_count = create_teams(settings.API_ENDPOINT,
                                   github_org,
                                   github_token,
                                   team_data)
         logging.info("Created %s teams", team_count)
-        logging.info("Update team and members")
-        team_member_data = read_file(settings.OUTPUT_FILE_MEMBERS)
-        team_member_count = create_members(
+        team_member_data = read_file(settings.OUTPUT_FILE_TEAM_MEMBERS)
+        team_member_count = create_team_members(
             settings.API_ENDPOINT,
             github_org, github_token,
             team_member_data)

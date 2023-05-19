@@ -12,7 +12,7 @@ def init():
         github_org = None
         github_token = None
         script = sys.argv[0]
-        usage_text = (f"Usage: {script} [create|update]"
+        usage_text = (f"Usage: {script} [list|create]"
                 "-o <organization_name> -t <github_personal_token>")
         operation = sys.argv[1]
         opts, _args = getopt.getopt(

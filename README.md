@@ -6,9 +6,9 @@ Python 3
 
 ### Usage: List Team Members
 Purpose: To list Team Members info in specified organization.<br/>
-How to Use: Execute following commandline with your organization name and token (Personal Access Token). The list of repo names and visibility information is written to a csv files `teams.csv` and `members.csv`.
+How to Use: Execute following command-line with your organization name and token (Personal Access Token). The list of repo names and visibility information is written to a csv files `teams.csv` and `members.csv`.
 
-- Commandline: 
+- command-line: 
 `python3 team_members.py list -o <org-name> -t <token>`
 - Output: 
 `teams.csv` and `members.csv`
@@ -20,10 +20,10 @@ How to Use: Execute following commandline with your organization name and token 
 
 ### Usage: Create Teams and Members
 Purpose: To create teams and members.<br/>
-How to Use: Execute following commandline with your target organization name and token (Personal Access Token). Processes teams and member creations from the files `teams.csv` and `members.csv`.<br/>
+How to Use: Execute following command-line with your target organization name and token (Personal Access Token). Processes teams and member creations from the files `teams.csv` and `members.csv`.<br/>
 Note: When you have team synchronization set up for a team with your organization's identity provider (IdP), you will see an error if you attempt to use the API for making changes to the team's membership. [Reference](https://docs.github.com/en/rest/teams/members?apiVersion=2022-11-28#add-or-update-team-membership-for-a-user)
 
-- Commandline
+- command-line
 `python3 team_members.py create -o <org-name> -t <token>`
 - Input
 `teams.csv` and `members.csv`
